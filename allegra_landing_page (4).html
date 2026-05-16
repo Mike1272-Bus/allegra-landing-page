@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allegra Digital Ground | Récupérez 30% de vos prospects perdus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #0F6E56;
+            --primary-dark: #0A4A3B;
+            --accent: #00FF88;
+            --danger: #FF0055;
+            --dark: #0A0A0A;
+            --gray-900: #1A1A1A;
+            --gray-800: #2A2A2A;
+            --gray-100: #F5F5F5;
+            --white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Space Mono', monospace;
+            background: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--dark) 100%);
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            opacity: 0.1;
+            top: -200px;
+            right: -200px;
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.2); opacity: 0.15; }
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, var(--white) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideDown 1s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero .stat {
+            font-size: clamp(64px, 10vw, 140px);
+            font-weight: 900;
+            color: var(--danger);
+            display: block;
+            margin: 20px 0;
+            animation: slideDown 1s ease-out 0.2s both;
+        }
+        
+        .hero p {
+            font-size: clamp(18px, 2.5vw, 28px);
+            color: var(--gray-100);
+            max-width: 800px;
+            margin: 0 auto 50px;
+            animation: slideDown 1s ease-out 0.4s both;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 20px 50px;
+            background: var(--accent);
+            color: var(--dark);
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: slideDown 1s ease-out 0.6s both;
+        }
+        
+        .cta-button:hover {
+            background: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+        
+        /* Problem Section */
+        .section {
+            padding: 120px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(36px, 6vw, 72px);
+            font-weight: 900;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .problem-card {
+            background: var(--gray-900);
+            padding: 40px;
+            border-radius: 16px;
+            border: 2px solid var(--gray-800);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--danger);
+        }
+        
+        .problem-card:hover {
+            border-color: var(--danger);
+            transform: translateY(-5px);
+        }
+        
+        .problem-card .icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .problem-card h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: var(--danger);
+        }
+        
+        .problem-card p {
+            font-size: 16px;
+            color: var(--gray-100);
+            line-height: 1.8;
+        }
+        
+        /* Solution Section */
+        .solution-section {
+            background: var(--gray-900);
+            padding: 120px 20px;
+        }
+        
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .solution-card {
+            background: var(--dark);
+            padding: 40px;
+            border-radius: 16px;
+            border: 2px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+        }
+        
+        .solution-card .number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 120px;
+            font-weight: 900;
+            color: var(--accent);
+            opacity: 0.1;
+            line-height: 1;
+        }
+        
+        .solution-card h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--accent);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .solution-card p {
+            font-size: 16px;
+            color: var(--gray-100);
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Before/After Section */
+        .before-after {
+            padding: 120px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 80px;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison { grid-template-columns: 1fr; gap: 40px; }
+        }
+        
+        .before, .after {
+            padding: 60px 40px;
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .before {
+            background: linear-gradient(135deg, #2A0A0A 0%, var(--gray-900) 100%);
+            border: 3px solid var(--danger);
+        }
+        
+        .after {
+            background: linear-gradient(135deg, #0A2A1A 0%, var(--gray-900) 100%);
+            border: 3px solid var(--accent);
+        }
+        
+        .before h3, .after h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 42px;
+            margin-bottom: 40px;
+        }
+        
+        .before h3 { color: var(--danger); }
+        .after h3 { color: var(--accent); }
+        
+        .metric {
+            margin: 30px 0;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .metric::before {
+            position: absolute;
+            left: 0;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .before .metric::before { content: "❌"; color: var(--danger); }
+        .after .metric::before { content: "✅"; color: var(--accent); }
+        
+        .metric-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .metric-desc {
+            font-size: 16px;
+            color: var(--gray-100);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 120px 20px;
+            background: var(--gray-900);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+        
+        .testimonial-card {
+            background: var(--dark);
+            padding: 50px 40px;
+            border-radius: 20px;
+            border: 2px solid var(--gray-800);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .quote-icon {
+            font-size: 120px;
+            color: var(--accent);
+            opacity: 0.1;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            line-height: 1;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--gray-100);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid var(--gray-800);
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 2px solid var(--accent);
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info {
+            flex: 1;
+        }
+        
+        .author-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+        
+        .author-title {
+            font-size: 14px;
+            color: var(--gray-100);
+        }
+        
+        .testimonial-stat {
+            margin-top: 20px;
+            padding: 15px 20px;
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 10px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        /* Results Section */
+        .results {
+            background: var(--primary-dark);
+            padding: 120px 20px;
+            text-align: center;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            max-width: 1200px;
+            margin: 80px auto 0;
+        }
+        
+        .result-item {
+            padding: 40px 20px;
+        }
+        
+        .result-number {
+            font-size: 96px;
+            font-weight: 900;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .result-label {
+            font-size: 20px;
+            color: var(--white);
+            font-weight: 700;
+        }
+        
+        /* CTA Section */
+        .final-cta {
+            padding: 120px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary-dark) 100%);
+        }
+        
+        .final-cta h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(36px, 6vw, 72px);
+            font-weight: 900;
+            margin-bottom: 40px;
+        }
+        
+        .final-cta p {
+            font-size: clamp(18px, 2.5vw, 28px);
+            color: var(--gray-100);
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .contact-info {
+            margin-top: 60px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-info p {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+        
+        .contact-info strong {
+            color: var(--accent);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--gray-800);
+        }
+        
+        footer p {
+            color: var(--gray-100);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Vous perdez<span class="stat">30-40%</span>de vos prospects</h1>
+            <p>Sans même le savoir. Nous avons créé le système qui les récupère automatiquement.</p>
+            <a href="#contact" class="cta-button">Récupérer mes prospects perdus</a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section">
+        <h2 class="section-title">Le problème que vous vivez chaque jour</h2>
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="icon">⏰</div>
+                <h3>Réactivité trop lente</h3>
+                <p>Vos prospects remplissent un formulaire à 2h du matin. Vous les rappelez 48h plus tard. Ils ont déjà signé ailleurs.</p>
+            </div>
+            
+            <div class="problem-card">
+                <div class="icon">🎯</div>
+                <h3>Leads non qualifiés</h3>
+                <p>Tous vos prospects sont traités de la même façon. Impossible de distinguer le lead chaud du lead froid. Vous perdez du temps sur les mauvais.</p>
+            </div>
+            
+            <div class="problem-card">
+                <div class="icon">📊</div>
+                <h3>Signaux invisibles</h3>
+                <p>Un prospect visite 3 fois votre page tarifs, télécharge votre brochure, ouvre vos emails. Vous ne le savez même pas.</p>
+            </div>
+            
+            <div class="problem-card">
+                <div class="icon">💸</div>
+                <h3>Budget pub gaspillé</h3>
+                <p>Vous dépensez 3000€/mois en publicité. 70% des leads générés ne sont jamais suivis correctement. 2100€ partent en fumée.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section">
+        <div class="section">
+            <h2 class="section-title">Notre système en 4 étapes</h2>
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="number">1</div>
+                    <h3>Détection automatique</h3>
+                    <p>Nous capturons TOUS les signaux d'intention d'achat : visites de pages stratégiques, téléchargements, ouvertures d'emails, temps passé sur site, comportements de navigation.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="number">2</div>
+                    <h3>Scoring intelligent</h3>
+                    <p>Chaque prospect reçoit une note de 0 à 100 en temps réel. L'IA analyse son comportement et détermine son niveau d'intérêt. Vous savez qui est prêt à acheter.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="number">3</div>
+                    <h3>Action instantanée</h3>
+                    <p>Dès qu'un prospect devient "chaud", votre équipe commerciale reçoit une alerte (Slack, SMS, email) dans les 5 minutes. Un email personnalisé part automatiquement au prospect.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="number">4</div>
+                    <h3>Optimisation continue</h3>
+                    <p>Nous mesurons tout : taux de conversion par segment, vélocité des transactions, ROI par canal. Ajustements mensuels pour améliorer constamment les performances.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Section -->
+    <section class="before-after">
+        <h2 class="section-title">Avant / Après notre système</h2>
+        <div class="comparison">
+            <div class="before">
+                <h3>AVANT</h3>
+                <div class="metric">
+                    <div class="metric-title">Délai de réponse : 48h</div>
+                    <div class="metric-desc">Le prospect a déjà oublié qu'il vous a contacté</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">60-70% de leads perdus</div>
+                    <div class="metric-desc">Parce que vous ne réagissez pas assez vite</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Tous traités pareil</div>
+                    <div class="metric-desc">Pas de priorisation, gaspillage de temps commercial</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Suivi manuel chronophage</div>
+                    <div class="metric-desc">Vos commerciaux passent 70% de leur temps sur de l'admin</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Budget pub mal utilisé</div>
+                    <div class="metric-desc">2100€/mois perdus en moyenne sur 3000€ de pub</div>
+                </div>
+            </div>
+            
+            <div class="after">
+                <h3>APRÈS</h3>
+                <div class="metric">
+                    <div class="metric-title">Délai de réponse : 5 minutes</div>
+                    <div class="metric-desc">Alerte automatique + email personnalisé envoyé</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">30-40% de prospects récupérés</div>
+                    <div class="metric-desc">Grâce à la réactivité et au nurturing automatique</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Priorisation intelligente</div>
+                    <div class="metric-desc">Score 0-100 : vos commerciaux appellent les bons leads</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Workflows automatisés</div>
+                    <div class="metric-desc">Relances, nurturing, alertes : tout tourne seul</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">ROI pub multiplié par 2</div>
+                    <div class="metric-desc">Chaque euro investi en pub génère maintenant des résultats</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2 class="section-title">Ils ont récupéré leurs prospects perdus</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <p class="testimonial-text">Avant Allegra, on perdait 65% de nos leads Facebook. On dépensait 4500€/mois en pub pour rien. Maintenant, chaque lead reçoit une réponse en moins de 10 minutes. On a récupéré 38% de prospects en 2 mois. Le ROI parle de lui-même.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="images/photo_temoignage_1.jpg" alt="Sophie Marchand">
+                    </div>
+                    <div class="author-info">
+                        <div class="author-name">Sophie Marchand</div>
+                        <div class="author-title">Directrice Commerciale · Immo Connect Paris</div>
+                    </div>
+                </div>
+                <div class="testimonial-stat">+38% de conversion</div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <p class="testimonial-text">Notre problème ? On générait 200 leads/mois mais on n'arrivait à en traiter que 50. Les autres disparaissaient. Mike a mis en place le système de scoring en 3 semaines. Résultat : mes commerciaux ne perdent plus de temps sur les leads froids. On a signé 12 clients supplémentaires le premier mois.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="images/photo_temoignage_2.jpg" alt="Thomas Dubois">
+                    </div>
+                    <div class="author-info">
+                        <div class="author-name">Thomas Dubois</div>
+                        <div class="author-title">CEO · FormaPro Academy</div>
+                    </div>
+                </div>
+                <div class="testimonial-stat">12 clients en 30 jours</div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <p class="testimonial-text">Le déclic ? Voir en temps réel qu'un prospect avait visité notre page tarifs 4 fois en 48h sans qu'on le sache. Maintenant, dès qu'un prospect montre un signal fort, on est alertés. On a divisé notre cycle de vente par 2. Le système s'est remboursé en 6 semaines.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="images/photo_temoignage_3.jpg" alt="Alexandre Martin">
+                    </div>
+                    <div class="author-info">
+                        <div class="author-name">Alexandre Martin</div>
+                        <div class="author-title">VP Sales · TechFlow Solutions</div>
+                    </div>
+                </div>
+                <div class="testimonial-stat">Cycle de vente -50%</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results">
+        <h2 class="section-title">Résultats concrets mesurés</h2>
+        <div class="results-grid">
+            <div class="result-item">
+                <div class="result-number">-65%</div>
+                <div class="result-label">Temps de conversion</div>
+            </div>
+            <div class="result-item">
+                <div class="result-number">+45%</div>
+                <div class="result-label">Taux de conversion</div>
+            </div>
+            <div class="result-item">
+                <div class="result-number">30-40%</div>
+                <div class="result-label">Prospects récupérés</div>
+            </div>
+            <div class="result-item">
+                <div class="result-number">x2,1</div>
+                <div class="result-label">ROI publicité</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="contact">
+        <h2>Arrêtez de perdre des clients<br>pendant que vous dormez</h2>
+        <p>Le système tourne sur HubSpot. Pas besoin de budget NASA.<br>On vous montre exactement combien vous perdez actuellement<br>et comment récupérer 30 à 40% de ces prospects.</p>
+        <a href="mailto:allke92@gmail.com" class="cta-button">Demander un audit gratuit</a>
+        
+        <div class="contact-info">
+            <p><strong>Mike Tambwe</strong></p>
+            <p>CEO · Allegra Digital Ground</p>
+            <p>📧 allke92@gmail.com</p>
+            <p>🌐 allegra-digital-ground.com</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Allegra Digital Ground. Tous droits réservés.</p>
+        <p>Automatisation Marketing · IA · Scoring Prédictif</p>
+    </footer>
+
+</body>
+</html>
